@@ -1,0 +1,50 @@
+<div class="col-md-12 no-padding" ng-if="vm.userDetails">
+    <div class="col-md-12 no-padding text-center main-user-details">
+        <div class="main-text">{{vm.userDetails.fullName}}</div>
+        <div class="conversation-text">
+            <span ng-if="vm.userDetails.isOnline">Online</span>
+            <span ng-if="!vm.userDetails.isOnline">Offline</span>
+        </div>
+    </div>
+    <div class="col-md-12 chat-list" s͟c͟r͟o͟l͟l͟-͟t͟o͟-͟b͟o͟t͟t͟o͟m͟=͟"͟vm.chatHistory.conversation">
+        <div ng-repeat="chat in vm.chatHistory.conversation | orderBy: orderByDate">
+            <div ng-if="chat.formUserId == vm.currentUser.id">
+
+                <div class="row justify-content-end">
+                    <div class="col-md-7 padding-top-bottom-10 inline-block" style="float:right">
+                        <div class="my-message">
+                            {{chat.message}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div ng-if="chat.formUserId != vm.currentUser.id">
+                <div class="row pull-left padding-top-bottom-10">
+                    <div class="col-md-1 inline-block user-image">
+                        <img ng-src="{{vm.userDetails.profilePic}}" class="conversation-mesage-detail-img" alt="Avatar">
+                    </div>
+                    <div class="col-md-8 inline-block no-padding-left">
+                        <div class="conversation-text">{{vm.userDetails.fullName}}</div>
+                        <div class="friend-message">
+                            {{chat.message}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-10 footer-right">
+        <div class="row chat-box-form">
+            <form ng-submit="vm.sentMessage()" name="vm.chat" class="form">
+                <div class="col-md-10 inline-block">
+                    <input type="text" ng-model="vm.message" placeholder="Aa" class="form-control chat-input">
+                </div>
+                <div class="col-md-1 inline-block">
+                    <button type="submit" class="btn message-sent-arrow">
+                        <i class="fas fa-location-arrow"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

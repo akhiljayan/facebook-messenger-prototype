@@ -1,0 +1,28 @@
+{
+  "name": "socketui",
+  "version": "1.0.0",
+  "description": "UI for chat application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Akhil Jayan",
+  "license": "MIT",
+  "dependencies": {
+    "angular": "^1.7.2",
+    "angular-ui-router": "^1.0.18",
+    "jquery": "^3.3.1",
+    "bootstrap": "^4.1.3",
+    "grunt": "^1.0.3",
+    "grunt-contrib-cssmin": "^3.0.0",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-uglify": "^4.0.0",
+    "grunt-contrib-watch": "^1.1.0",
+    "grunt-angular-templates":"^1.1.0",
+    "grunt-open": "^0.2.3",
+    "grunt-processhtml": "^0.4.1",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-connect": "^2.0.0",
+    "yarn": "^1.12.3"
+  }
+}

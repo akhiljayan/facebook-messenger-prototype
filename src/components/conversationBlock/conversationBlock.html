@@ -1,0 +1,24 @@
+<div class="row conversation-block" ng-click="vm.userSelected(vm.conversation.id)">
+    <div class="col-md-2 inline-block user-image">
+        <img ng-src="{{vm.conversation.profilePic}}" class="conversation-block-img" alt="Avatar">
+        <div class="online-icon" ng-if="vm.conversation.isOnline">
+            <i class="fas fa-circle"></i>
+        </div>
+    </div>
+    <div class="col-md-8 inline-block">
+        <div class="main-text">{{vm.conversation.fullName}}</div>
+        <div class="conversation-text truncate">{{vm.conversation.lastMessage}}</div>
+    </div>
+    <div class="col-md-2 no-padding inline-block">
+        <div class="conversation-text">{{vm.getDate(vm.conversation.lastMessageTimestamp)}}</div>
+        <div class="conversation-text pull-right" ng-if="vm.conversation.sent && !vm.conversation.seen && !vm.conversation.isReceived">
+            <i class="far fa-check-circle message-indication"></i>
+        </div>
+        <div class="conversation-text  pull-right" ng-if="vm.conversation.sent && !vm.conversation.seen && vm.conversation.isReceived">
+            <i class="fas fa-check-circle message-indication"></i>
+        </div>
+        <div ng-if="vm.conversation.sent && vm.conversation.seen && vm.conversation.isReceived">
+            <img ng-src="{{vm.conversation.profilePic}}" class="conversation-seen-img" alt="Avatar">
+        </div>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+<div class="row">
+    <div class="col-md-12 no-padding-right search-conversation">
+        <input class="form-control search-box" type="text" placeholder="Search">
+    </div>
+    <div class="col-md-12 conversation-list">
+        <div ng-repeat="conversation in vm.latestConversations | orderBy: orderByDate">
+            <conversation-block model="conversation" user-click="vm.userClicked($event)"></conversation-block>
+        </div>
+    </div>
+    <div class="col-md-3 footer">
+        <div class="row list-settings">
+            <div class="col-md-4 inline-block text-center">
+                <i class="far fa-clock"></i><br>
+                <div class="conversation-text truncate">Home</div>
+            </div>
+            <div class="col-md-4 inline-block text-center">
+                <i class="fas fa-list-ul"></i><br>
+                <div class="conversation-text truncate">People</div>
+            </div>
+            <div class="col-md-4 inline-block text-center">
+                <i class="fas fa-cog"></i><br>
+                <div class="conversation-text truncate">Settings</div>
+            </div>
+        </div>
+    </div>
+</div>
