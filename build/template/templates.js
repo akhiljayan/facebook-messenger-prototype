@@ -18,7 +18,7 @@ angular.module('templateChacher', []).run(['$templateCache', function($templateC
     "\n" +
     "    </div>\r" +
     "\n" +
-    "    <div class=\"col-md-12 chat-list\" s͟c͟r͟o͟l͟l͟-͟t͟o͟-͟b͟o͟t͟t͟o͟m͟=͟\"͟vm.chatHistory.conversation\">\r" +
+    "    <div class=\"col-md-12 chat-list\" id=\"chat-box\">\r" +
     "\n" +
     "        <div ng-repeat=\"chat in vm.chatHistory.conversation | orderBy: orderByDate\">\r" +
     "\n" +

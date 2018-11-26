@@ -1,7 +1,7 @@
 (function () {
     angular.module('app').controller('ChatBoxController', [
-        '$state', '$scope', '$window', 'operations',
-        function ($state, $scope, $window, operations) {
+        '$state', '$scope', '$window', 'operations', '$timeout',
+        function ($state, $scope, $window, operations, $timeout) {
             var vm = this;
             vm.$onInit = onInit;
 
@@ -10,6 +10,10 @@
                     vm.userDetails = operations.getUserById(vm.selectedUserId);
                     vm.chatHistory = operations.getConversations(vm.selectedUserId);
                     vm.currentUser = operations.getCurrentUser();
+                    $timeout(function () {
+                        var scroller = document.getElementById("chat-box");
+                        scroller.scrollTop = scroller.scrollHeight;
+                    }, 0, false);
                 }
             };
 
@@ -30,6 +34,10 @@
                 //operations.addMessageToChat(vm.chatHistory.id, vm.model);
                 vm.chatHistory.conversation.push(vm.model);
                 vm.message = "";
+                $timeout(function () {
+                    var scroller = document.getElementById("chat-box");
+                    scroller.scrollTop = scroller.scrollHeight;
+                }, 0, false);
             }
 
             $scope.orderByDate = function (item) {
@@ -40,11 +48,11 @@
             function makeid() {
                 var text = "";
                 var possible = "abcdefghijklmnopqrstuvwxyz0123456789";
-                for (var i = 0; i < 25; i++){
+                for (var i = 0; i < 25; i++) {
                     text += possible.charAt(Math.floor(Math.random() * possible.length));
                 }
                 return text;
-              }
+            }
 
         }
     ]);

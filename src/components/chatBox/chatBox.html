@@ -6,7 +6,7 @@
             <span ng-if="!vm.userDetails.isOnline">Offline</span>
         </div>
     </div>
-    <div class="col-md-12 chat-list" s͟c͟r͟o͟l͟l͟-͟t͟o͟-͟b͟o͟t͟t͟o͟m͟=͟"͟vm.chatHistory.conversation">
+    <div class="col-md-12 chat-list" id="chat-box">
         <div ng-repeat="chat in vm.chatHistory.conversation | orderBy: orderByDate">
             <div ng-if="chat.formUserId == vm.currentUser.id">
 
