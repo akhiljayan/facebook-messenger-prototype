@@ -6,12 +6,13 @@ UI prototype for Facebook messenger using angular js with scope to include conne
 
 1. Node js
 2. npm
-3. grunt installed globally
+3. Chrome browser defaulted (Opens chrome browser on running grunt command)
+4. grunt installed globally
 
 ```bash
 npm install -g grunt
 ```
-4. yarn installed globally (Recommended) 
+5. yarn installed globally (Recommended) 
 ```bash
 npm install -g yarn
 ```
