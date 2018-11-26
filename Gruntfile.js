@@ -7,6 +7,8 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-processhtml');
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-angular-templates');
+    grunt.loadNpmTasks('grunt-contrib-concat');
+
 
 
     grunt.initConfig({
@@ -28,6 +30,20 @@ module.exports = function (grunt) {
                     ],
                 }
             }
+        },
+
+        concat: {
+            dist: {
+                src: [
+                    'node_modules/angular/angular.min.js',
+                    'node_modules/angular-ui-router/release/angular-ui-router.min.js',
+                    'node_modules/jquery/dist/jquery.min.js',
+                    'node_modules/bootstrap/dist/js/bootstrap.min.js',
+                    'src/app.js',
+                    'src/**/*.js'
+                ],
+                dest: 'build/js/scripts.min.js',
+            },
         },
 
         cssmin: {
@@ -91,11 +107,20 @@ module.exports = function (grunt) {
                 options: {
                     livereload: true
                 }
+            },
+            debug:{
+                files: ['src/**/*'],
+                tasks: ['concat', 'cssmin', 'processhtml', 'ngtemplates'],
+                options: {
+                    livereload: true
+                }
             }
         }
     });
 
 
     grunt.registerTask('default', ['connect:build', 'open:build', 'watch:client']);
+    grunt.registerTask('run-debug', ['connect:build', 'open:build', 'watch:debug']);
     grunt.registerTask('build', ['uglify', 'cssmin', 'processhtml', 'ngtemplates']);
+    grunt.registerTask('build-debug', ['concat', 'cssmin', 'processhtml', 'ngtemplates']);
 };
